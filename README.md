@@ -1,50 +1,101 @@
-# Welcome to your Expo app 👋
+Employee Management System
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A modern React Native + Expo mobile application for managing employees, tracking attendance, and generating reports.
+Built with clean architecture, TypeScript, and modern UI practices.
+✨ Features
 
-## Get started
+Employee Management
+Add new employees
+View employee list with search functionality
+Employee profile details
 
-1. Install dependencies
+Attendance System
+Mark daily attendance (Present, Absent, Half Day, Holiday)
+Date navigation
+Advance/Loan and Bonus tracking
 
-   ```bash
-   npm install
-   ```
+Reports & Analytics
+Monthly attendance summary for all employees
+Present, Absent, Half Day, and No Work tracking
+Month-wise navigation
 
-2. Start the app
+Modern UI/UX
+Clean card-based design
+Smooth navigation with Expo Router
+Responsive and user-friendly interface
 
-   ```bash
-   npx expo start
-   ```
+🛠 Tech Stack
 
-In the output, you'll find options to open the app in a
+Framework: React Native + Expo
+Language: TypeScript
+Routing: Expo Router (File-based)
+HTTP Client: Axios
+Date Handling: Moment.js
+Icons: @expo/vector-icons
+Styling: StyleSheet (Native)
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+📱 Screens
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+Screen,        Description
+index,         Dashboard / Home
+employees,     List & Search Employees
+adddetails,    Add New Employee Form
+markattendance,Mark Daily Attendance
+summary,       Monthly Attendance Report
+user/[user],   Individual Employee Attendance
 
-## Get a fresh project
+🚀 Getting Started
+Prerequisites
 
-When you're ready, run:
+Node.js
+Expo CLI (npm install -g expo-cli)
+Android Studio / Xcode (for simulators)
 
-```bash
-npm run reset-project
-```
+Installation
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+Clone the repositoryBashgit clone <https://github.com/meanev56/employee-app-native.git>
+cd employee-management-app
+Install dependenciesBashnpm install
+Start the development serverBashnpx expo start
+Run on device/simulator
+Press a for Android
+Press i for iOS
+Scan QR code with Expo Go app
 
-## Learn more
+Backend Setup
+Make sure your backend server is running at:
+text
+<http://localhost:8000>
+Endpoints used:
 
-To learn more about developing your project with Expo, look at the following resources:
+GET /employees
+POST /addEmployee
+GET /attendance
+POST /attendance
+GET /attendance-report-all-employees
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+📂 Project Structure
+textemployee-app-native/
+├── app/
+│   ├── (home)/
+│   ├── index.tsx
+│   ├── employees.tsx
+│   ├── adddetails.tsx
+│   ├── markattendance.tsx
+│   └── summary.tsx
+├── components/
+│   └── (reusable components)
+├── constants/
+├── utils/
+└── README.md
+🔧 Scripts
 
-## Join the community
+npx expo start          → Start development server
+npx expo start -c       → Clear cache and start
+npx expo run:android    → Build for Android
+npx expo run:ios        → Build for iOS
 
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+🤝 Contributing
+Contributions, issues, and feature requests are welcome!
+📄 License
+This project is licensed under the MIT License.
