@@ -33,9 +33,10 @@ export default function Summary() {
         }
       );
 
-      setAttendanceData(response.data.report || []);
+      setAttendanceData(response.data?.report || []);
     } catch (error) {
       console.error("Error fetching attendance report:", error);
+      setAttendanceData([]);
     } finally {
       setLoading(false);
     }
@@ -57,20 +58,20 @@ export default function Summary() {
 
   return (
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
-      {/* Month Navigator */}
+      {/* Month Navigation */}
       <View style={styles.navigation}>
         <Pressable onPress={goToPrevMonth} style={styles.navButton}>
-          <AntDesign name="left" size={24} color="#1F2937" />
+          <AntDesign name="left" size={26} color="#1F2937" />
         </Pressable>
 
         <Text style={styles.monthText}>{formatMonthYear(currentDate)}</Text>
 
         <Pressable onPress={goToNextMonth} style={styles.navButton}>
-          <AntDesign name="right" size={24} color="#1F2937" />
+          <AntDesign name="right" size={26} color="#1F2937" />
         </Pressable>
       </View>
 
-      {/* Content */}
+      {/* Main Content */}
       <View style={styles.content}>
         {loading ? (
           <Text style={styles.loadingText}>Loading attendance data...</Text>
@@ -95,11 +96,12 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
-    gap: 20,
+    gap: 24,
     marginVertical: 24,
+    paddingHorizontal: 16,
   },
   navButton: {
-    padding: 8,
+    padding: 10,
   },
   monthText: {
     fontSize: 20,
@@ -111,13 +113,13 @@ const styles = StyleSheet.create({
   },
   loadingText: {
     textAlign: "center",
-    marginTop: 40,
+    marginTop: 60,
     fontSize: 16,
     color: "#6B7280",
   },
   emptyText: {
     textAlign: "center",
-    marginTop: 40,
+    marginTop: 60,
     fontSize: 16,
     color: "#6B7280",
   },

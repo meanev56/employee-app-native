@@ -1,6 +1,5 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import { DataTable } from "react-native-paper";
 
 interface AttendanceRecord {
   name: string;
@@ -34,25 +33,23 @@ export default function EmployeeCard({ employee }: EmployeeCardProps) {
         </View>
       </View>
 
-      {/* Attendance Summary Table */}
+      {/* Attendance Summary */}
       <View style={styles.tableContainer}>
-        <DataTable>
-          <DataTable.Header>
-            <DataTable.Title style={styles.tableHeader}>P</DataTable.Title>
-            <DataTable.Title style={styles.tableHeader}>A</DataTable.Title>
-            <DataTable.Title style={styles.tableHeader}>HD</DataTable.Title>
-            <DataTable.Title style={styles.tableHeader}>H</DataTable.Title>
-            <DataTable.Title style={styles.tableHeader}>NW</DataTable.Title>
-          </DataTable.Header>
+        <View style={styles.tableHeader}>
+          <Text style={styles.headerCell}>P</Text>
+          <Text style={styles.headerCell}>A</Text>
+          <Text style={styles.headerCell}>HD</Text>
+          <Text style={styles.headerCell}>H</Text>
+          <Text style={styles.headerCell}>NW</Text>
+        </View>
 
-          <DataTable.Row>
-            <DataTable.Cell>{employee.present}</DataTable.Cell>
-            <DataTable.Cell>{employee.absent}</DataTable.Cell>
-            <DataTable.Cell>{employee.halfday}</DataTable.Cell>
-            <DataTable.Cell>1</DataTable.Cell>
-            <DataTable.Cell>8</DataTable.Cell>
-          </DataTable.Row>
-        </DataTable>
+        <View style={styles.tableRow}>
+          <Text style={styles.cell}>{employee.present}</Text>
+          <Text style={styles.cell}>{employee.absent}</Text>
+          <Text style={styles.cell}>{employee.halfday}</Text>
+          <Text style={styles.cell}>1</Text>
+          <Text style={styles.cell}>8</Text>
+        </View>
       </View>
     </View>
   );
@@ -66,7 +63,7 @@ const styles = StyleSheet.create({
     marginBottom: 16,
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.08,
+    shadowOpacity: 0.1,
     shadowRadius: 10,
     elevation: 5,
   },
@@ -100,16 +97,37 @@ const styles = StyleSheet.create({
   designation: {
     fontSize: 14,
     color: "#6B7280",
-    marginTop: 2,
+    marginTop: 4,
   },
   tableContainer: {
-    backgroundColor: "#A1FFCE",
+    backgroundColor: "#E0F2E9",
     borderRadius: 12,
-    padding: 8,
-    overflow: "hidden",
+    padding: 12,
   },
   tableHeader: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginBottom: 8,
+    paddingHorizontal: 4,
+  },
+  headerCell: {
+    flex: 1,
+    textAlign: "center",
+    fontWeight: "700",
+    color: "#1F2937",
+    fontSize: 15,
+  },
+  tableRow: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    backgroundColor: "white",
+    borderRadius: 8,
+    padding: 12,
+  },
+  cell: {
+    flex: 1,
+    textAlign: "center",
+    fontSize: 16,
     fontWeight: "600",
-    color: "#374151",
   },
 });
